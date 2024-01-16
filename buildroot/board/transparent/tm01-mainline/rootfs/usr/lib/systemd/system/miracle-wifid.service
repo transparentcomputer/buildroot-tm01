@@ -1,0 +1,9 @@
+[Unit]
+Description=MiracleCast Wi-Fi Daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/miracle-wifid --use-dev
+
+[Install]
+WantedBy=multi-user.target
