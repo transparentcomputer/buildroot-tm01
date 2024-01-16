@@ -146,39 +146,17 @@
 	status = "okay";
 };
 
-// &tcon_lcd0 {
-// 	pinctrl-names = "default";
-// 	pinctrl-0 = <&lcd_rgb666_pins>;
-// 	status = "okay";
-// };
-//
-// &tcon_lcd0_out {
-// 	tcon_lcd0_out_panel: endpoint@0 {
-// 		reg = <0>;
-// 		remote-endpoint = <&panel_input>;
-// 	};
-// };
+&dsi {
+	pinctrl-0 = <&dsi_4lane_pins>;
+	pinctrl-names = "default";
+	status = "okay";
 
-// &dsi {
-// 	pinctrl-0 = <&dsi_4lane_pins>;
-// 	pinctrl-names = "default";
-// 	status = "disabled";
-
-// 	panel: panel@0 {
-// 		reg = <0>;
-// 		compatible = "lg,lh500wx1-sd03";
-// 		pinctrl-names = "default";
-// /*
-// 		pinctrl-0 = <&panel_pin>;
-
-// 		port {
-// 				panel_in: endpoint {
-// 						remote-endpoint = <&dsi0_out>;
-// 				};
-// 		};
-// */
-// 	};
-// };
+	panel: panel@0 {
+		reg = <0>;
+		compatible = "maradin,mar5400";
+		pinctrl-names = "default";
+	};
+};
 
 &pio {
 
