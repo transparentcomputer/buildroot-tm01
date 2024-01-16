@@ -4,8 +4,8 @@
 #
 ################################################################################
 
-MIRACLECAST_VERSION = af6ab257eae83bb0270a776a8fe00c0148bc53c4
-MIRACLECAST_SITE = $(call github,albfan,miraclecast,$(MIRACLECAST_VERSION))
+MIRACLECAST_VERSION = master
+MIRACLECAST_SITE = $(call github,transparentcomputer,miraclecast,$(MIRACLECAST_VERSION))
 MIRACLECAST_LICENSE = LGPL-2.1+, GPL-2.0 (gdhcp)
 MIRACLECAST_LICENSE_FILES = COPYING LICENSE_gdhcp LICENSE_htable LICENSE_lgpl
 MIRACLECAST_DEPENDENCIES = host-pkgconf systemd gstreamer1 \
