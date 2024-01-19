@@ -14,7 +14,7 @@ config BR2_PACKAGE_MIRACLECAST
 	  Wifi-Display specification also known as Miracast. MiracleCast
 	  implements the Display-Source as well as Display-Sink side.
 
-	  https://github.com/albfan/miraclecast
+	  https://github.com/transparentcomputer/miraclecast
 
 comment "miraclecast needs systemd and a glibc toolchain w/ threads and wchar"
 	depends on BR2_USE_MMU
