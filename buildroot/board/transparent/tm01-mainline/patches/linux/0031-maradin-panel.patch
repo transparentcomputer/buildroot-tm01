@@ -1,0 +1,49 @@
+diff --git a/drivers/gpu/drm/panel/panel-simple.c b/drivers/gpu/drm/panel/panel-simple.c
+index 2944228..ec82139 100644
+--- a/drivers/gpu/drm/panel/panel-simple.c
++++ b/drivers/gpu/drm/panel/panel-simple.c
+@@ -4484,6 +4484,34 @@ static const struct panel_desc_dsi lg_lh500wx1_sd03 = {
+ 	.lanes = 4,
+ };
+ 
++static const struct drm_display_mode maradin_mar5400_mode = {
++	.clock = 49000,
++	.hdisplay = 960,
++	.hsync_start = 960 + 12,
++	.hsync_end = 960 + 12 + 4,
++	.htotal = 960 + 12 + 4 + 120,
++	.vdisplay = 720,
++	.vsync_start = 720 + 8,
++	.vsync_end = 720 + 8 + 4,
++	.vtotal = 720 + 8 + 4 + 12,
++};
++
++static const struct panel_desc_dsi maradin_mar5400 = {
++	.desc = {
++		.modes = &maradin_mar5400_mode,
++		.num_modes = 1,
++		.bpc = 8,
++		.size = {
++			.width = 0,
++			.height = 0,
++		},
++		.connector_type = DRM_MODE_CONNECTOR_DSI,
++	},
++	.flags = MIPI_DSI_MODE_VIDEO,
++	.format = MIPI_DSI_FMT_RGB888,
++	.lanes = 4,
++};
++
+ static const struct drm_display_mode panasonic_vvx10f004b00_mode = {
+ 	.clock = 157200,
+ 	.hdisplay = 1920,
+@@ -4585,6 +4613,9 @@ static const struct of_device_id dsi_of_match[] = {
+ 	}, {
+ 		.compatible = "lg,lh500wx1-sd03",
+ 		.data = &lg_lh500wx1_sd03
++	}, {
++		.compatible = "maradin,mar5400",
++		.data = &maradin_mar5400
+ 	}, {
+ 		.compatible = "panasonic,vvx10f004b00",
+ 		.data = &panasonic_vvx10f004b00

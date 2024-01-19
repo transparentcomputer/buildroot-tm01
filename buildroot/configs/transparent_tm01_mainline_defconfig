@@ -11,8 +11,10 @@ BR2_ROOTFS_POST_BUILD_SCRIPT="board/allwinner-mainline/t113/scripts/post-build.s
 BR2_ROOTFS_POST_IMAGE_SCRIPT="support/scripts/genimage.sh"
 BR2_ROOTFS_POST_SCRIPT_ARGS="-c board/allwinner-mainline/t113/scripts/genimage_sdcard.cfg"
 BR2_LINUX_KERNEL=y
-BR2_LINUX_KERNEL_CUSTOM_VERSION=y
-BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="6.2.16"
+#BR2_LINUX_KERNEL_CUSTOM_VERSION=y
+#BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="6.1.24"
+BR2_LINUX_KERNEL_CUSTOM_TARBALL=y
+BR2_LINUX_KERNEL_CUSTOM_TARBALL_LOCATION="https://github.com/smaeul/linux/archive/refs/heads/d1/all.tar.gz"
 BR2_LINUX_KERNEL_PATCH="board/allwinner-mainline/t113/patches/linux/ board/transparent/tm01-mainline/patches/linux"
 BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
 BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/transparent/tm01-mainline/configs/linux_defconfig"
@@ -87,3 +89,6 @@ BR2_PACKAGE_GST1_PLUGINS_BASE_PLUGIN_VIDEOSCALE=y
 BR2_PACKAGE_GST1_PLUGINS_BAD_PLUGIN_V4L2CODECS=y
 
 BR2_PACKAGE_MIRACLECAST=y
+
+BR2_PACKAGE_PSPLASH=y
+BR2_PACKAGE_PSPLASH_IMAGE="psplash.png"
