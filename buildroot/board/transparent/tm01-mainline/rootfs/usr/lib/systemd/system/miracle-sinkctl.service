@@ -1,0 +1,10 @@
+[Unit]
+Description=MiracleCast Sink Control
+After=miracle-wifid.service
+
+[Service]
+ExecStartPre=/bin/sleep 10
+ExecStart=/usr/bin/miracle-sinkctl --audio 0 --res 00000080,00000000,00000000
+
+[Install]
+WantedBy=multi-user.target
