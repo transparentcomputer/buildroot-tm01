@@ -3,7 +3,7 @@ Description=MiracleCast Sink Control
 After=miracle-wifid.service
 
 [Service]
-ExecStartPre=/bin/sleep 10
+ExecStartPre=/bin/bash -c 'until [[ -e /sys/class/net/wlan0 && -e /dev/video0 ]]; do sleep 1; done'
 ExecStart=/usr/bin/miracle-sinkctl --audio 0 --res 00000080,00000000,00000000
 
 [Install]

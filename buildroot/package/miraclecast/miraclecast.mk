@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-MIRACLECAST_VERSION = 912e0dbb7b6741b1bae40355eeabac4f0ace5cc7
+MIRACLECAST_VERSION = a3cad1ccd55e7101db5e232ea59a45f3f98a33ac
 MIRACLECAST_SITE = $(call github,transparentcomputer,miraclecast,$(MIRACLECAST_VERSION))
 MIRACLECAST_LICENSE = LGPL-2.1+, GPL-2.0 (gdhcp)
 MIRACLECAST_LICENSE_FILES = COPYING LICENSE_gdhcp LICENSE_htable LICENSE_lgpl
