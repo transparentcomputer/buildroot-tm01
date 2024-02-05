@@ -1,0 +1,29 @@
+diff --git a/drivers/net/wireless/rsi/rsi_91x_mac80211.c b/drivers/net/wireless/rsi/rsi_91x_mac80211.c
+index 2fbec51..022bfb2 100644
+--- a/drivers/net/wireless/rsi/rsi_91x_mac80211.c
++++ b/drivers/net/wireless/rsi/rsi_91x_mac80211.c
+@@ -795,6 +795,8 @@ static void rsi_mac80211_bss_info_changed(struct ieee80211_hw *hw,
+ 	if (changed & BSS_CHANGED_ASSOC) {
+ 		rsi_dbg(INFO_ZONE, "%s: Changed Association status: %d\n",
+ 			__func__, vif->cfg.assoc);
++		if (!vif->cfg.assoc)
++			rsi_disable_ps(adapter, vif);
+ 		if (vif->cfg.assoc) {
+ 			/* Send the RX filter frame */
+ 			rx_filter_word = (ALLOW_DATA_ASSOC_PEER |
+diff --git a/drivers/net/wireless/rsi/rsi_91x_ps.c b/drivers/net/wireless/rsi/rsi_91x_ps.c
+index a029049..865b52f 100644
+--- a/drivers/net/wireless/rsi/rsi_91x_ps.c
++++ b/drivers/net/wireless/rsi/rsi_91x_ps.c
+@@ -108,6 +108,11 @@ void rsi_conf_uapsd(struct rsi_hw *adapter, struct ieee80211_vif *vif)
+ {
+ 	int ret;
+ 
++	if (adapter->ps_state == PS_NONE) {
++		rsi_enable_ps(adapter, vif);
++		return;
++	}
++
+ 	if (adapter->ps_state != PS_ENABLED)
+ 		return;
+ 
