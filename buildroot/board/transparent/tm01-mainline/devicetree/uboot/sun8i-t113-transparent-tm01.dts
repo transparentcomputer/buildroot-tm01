@@ -147,10 +147,10 @@
 // };
 
 /* The USB-C socket has its CC pins pulled to GND, so is hardwired as a UFP. */
-&usb_otg {
-	dr_mode = "peripheral";
-	status = "okay";
-};
+// &usb_otg {
+// 	dr_mode = "peripheral";
+// 	status = "okay";
+// };
 
 &usbphy {
 	usb1_vbus-supply = <&reg_vcc5v>;
