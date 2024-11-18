@@ -92,16 +92,16 @@
 	// 	};
 	// };
 
-	leds {
-		compatible = "gpio-leds";
-
-		status {
-			label = "led_blue";
-			linux,default-trigger = "heartbeat";
-			gpios = <&pio 3 22 GPIO_ACTIVE_LOW>;
-			default-state = "on";
-		};
-	};
+	// leds {
+	// 	compatible = "gpio-leds";
+ //
+	// 	status {
+	// 		label = "led_blue";
+	// 		linux,default-trigger = "heartbeat";
+	// 		gpios = <&pio 3 22 GPIO_ACTIVE_LOW>;
+	// 		default-state = "on";
+	// 	};
+	// };
 
 	// wifi_pwrseq: wifi-pwrseq {
 	// 	compatible = "mmc-pwrseq-simple";
@@ -144,6 +144,10 @@
 
 &de {
 	status = "okay";
+};
+
+&mixer1 {
+	status = "disabled"; // Workaround TCON TOP tint issue
 };
 
 &dsi {
