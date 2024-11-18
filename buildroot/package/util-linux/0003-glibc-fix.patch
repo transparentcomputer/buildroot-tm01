@@ -1,0 +1,16 @@
+diff --git a/include/pidfd-utils.h b/include/pidfd-utils.h
+index eddede97674..d9e33cbc57a 100644
+--- a/include/pidfd-utils.h
++++ b/include/pidfd-utils.h
+@@ -4,8 +4,10 @@
+ #ifdef HAVE_SYS_SYSCALL_H
+ # include <sys/syscall.h>
+ # if defined(SYS_pidfd_send_signal) && defined(SYS_pidfd_open)
++#
++#  include <sys/pidfd.h>
++#
+ #  include <sys/types.h>
+-
+ #  ifndef HAVE_PIDFD_SEND_SIGNAL
+ static inline int pidfd_send_signal(int pidfd, int sig, siginfo_t *info,
+ 				    unsigned int flags)
