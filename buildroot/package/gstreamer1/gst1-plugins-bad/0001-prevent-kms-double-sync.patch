@@ -1,0 +1,19 @@
+diff --git a/sys/kms/gstkmssink.c b/sys/kms/gstkmssink.c
+index 788cefc..3559e90 100644
+--- a/sys/kms/gstkmssink.c
++++ b/sys/kms/gstkmssink.c
+@@ -1676,10 +1676,10 @@ retry_set_plane:
+ 
+ sync_frame:
+   /* Wait for the previous frame to complete redraw */
+-  if (!gst_kms_sink_sync (self)) {
+-    GST_OBJECT_UNLOCK (self);
+-    goto bail;
+-  }
++  // if (!gst_kms_sink_sync (self)) {
++  //   GST_OBJECT_UNLOCK (self);
++  //   goto bail;
++  // }
+ 
+   /* Save the rendered buffer and its metadata in case a redraw is needed */
+   if (buffer != self->last_buffer) {
